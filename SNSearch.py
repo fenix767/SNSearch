@@ -14,7 +14,7 @@ def ajuda():
 + -fi => Filmow
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 --python SNSearch.py mary553 -tu
---python SNSearch.py algo -all
+--python SNSearch.py nick_do_user -all
 
 
 """)
