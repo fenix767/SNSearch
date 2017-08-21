@@ -77,8 +77,8 @@ def filmow():
 
 
 ########## MAIN
-if len(x) == 3: # Se o tamanho da sys for 3 execute isso, ou seja : python Social-Media-Search.py exemplo -all
-	nick = x[1]         													#1						#2		#3
+if len(x) == 3: 
+	nick = x[1]   
 	if x[2] == '-f': # Se o argumento 2 for -f chame a funçao facebook
 		facebook()
 	elif x[2] == '-fi': # Se Não se o argumento 2 for -fi chame a funçao filmow
