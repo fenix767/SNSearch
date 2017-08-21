@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
 import sys, requests # pip install requests
 import webbrowser
 global nick # varivel nick como global
@@ -12,11 +15,10 @@ def ajuda():
 + -i  => Instagram
 + -tu => Tumblr 
 + -fi => Filmow
++ -gh => Github
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 --python SNSearch.py mary553 -tu
 --python SNSearch.py nick_do_user -all
-
-
 """)
 
 def abra(url):
@@ -73,8 +75,16 @@ def filmow():
 		abra(url)
 	else:
 		print('[-]FILMOW NOT FOUND => {}\n'.format(url))
-
-
+		
+def github():
+	url = 'https://github.com/'+nick
+	r = requests.get(url) # faz a requisiçao
+	checa = r.status_code # varivel para checar o status
+	if checa == 200: # caso o status seja 200 ele retorna FOUND
+		print('[+] GITHUB FOUND => {}\n'.format(url))
+		abra(url)
+	else:
+          print('[-]GITHUB NOT FOUND => {}\n'.format(url))
 
 ########## MAIN
 if len(x) == 3: 
@@ -94,9 +104,7 @@ if len(x) == 3:
 		filmow()
 	elif x[2] == '-i': # Se Não se o argumento 2 for -i chame a funçao instagram
 		instagram()
-
+	elif x[2] == '-gh': # Se Não se o argumento 2 for -gh chame a funçao github
+         github()
 else:
-	ajuda()
-
-
-
+	  ajuda()
