@@ -28,6 +28,7 @@ def facebook():
 	checa = r.status_code # varivel para checar o status
 	if checa == 200: # caso o status seja 200 ele retorna FOUND
 		print('[+] FACEBOOK FOUND => {}\n'.format(url))
+		abra(url)
 	else:
 		print('[-]FACEBOOK NOT FOUND => {}\n'.format(url))
 
