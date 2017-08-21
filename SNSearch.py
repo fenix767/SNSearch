@@ -16,6 +16,7 @@ def ajuda():
 + -tu => Tumblr 
 + -fi => Filmow
 + -gh => Github
++ -yt => Youtube
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 --python SNSearch.py mary553 -tu
 --python SNSearch.py nick_do_user -all
@@ -86,6 +87,17 @@ def github():
 	else:
           print('[-]GITHUB NOT FOUND => {}\n'.format(url))
 
+def youtube():
+	url = 'https://www.youtube.com/channel/'+nick
+	r = requests.get(url) # faz a requisiçao
+	checa = r.status_code # varivel para checar o status
+	if checa == 200: # caso o status seja 200 ele retorna FOUND
+		print('[+] Channel FOUND => {}\n'.format(url))
+		abra(url)
+	else:
+          print('[-]Channel NOT FOUND => {}\n'.format(url))
+          
+
 ########## MAIN
 if len(x) == 3: 
 	nick = x[1]   
@@ -106,5 +118,7 @@ if len(x) == 3:
 		instagram()
 	elif x[2] == '-gh': # Se Não se o argumento 2 for -gh chame a funçao github
          github()
+	elif x[2] == '-yt': # Se Não se o argumento 2 for -yt chame a funçao 
+		 youtube()
 else:
-	  ajuda()
+	 ajuda()
